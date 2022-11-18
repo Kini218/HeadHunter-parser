@@ -128,7 +128,7 @@ class Fill_Excel_Table:
 
         self.wb.save(f'{self.xl_file_name}.xlsx')
 
-
+# Use example
 parser1 = HH_Parser('Python', 400)
 vacancy_data = parser1.get_vacancy_information()
 
