@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from openpyxl import Workbook
 
+
 class HH_Parser:
 
     def __init__(self, vacancy_name: str, number_of_vacancy: int) -> None:
@@ -128,9 +129,18 @@ class Fill_Excel_Table:
 
         self.wb.save(f'{self.xl_file_name}.xlsx')
 
-# Use example
-parser1 = HH_Parser('Python', 400)
-vacancy_data = parser1.get_vacancy_information()
 
-xl1 = Fill_Excel_Table('Example')
-xl1.fill_xl_table(vacancy_data)
+if __name__ == '__main__':
+    print('Input vacancy name:')
+    vacancy_name = input()
+
+    print('Input vacancy amount:')
+    vacancy_amount = input()
+
+    print('Input output file name')
+    out_name = input()
+
+    vacancy_data = HH_Parser(
+        vacancy_name, vacancy_amount).get_vacancy_information()
+
+    Fill_Excel_Table(out_name).fill_xl_table(vacancy_data)
